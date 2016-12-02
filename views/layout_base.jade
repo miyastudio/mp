@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='/lib/angular/angular.min.js')
+    script(src='/javascripts/app.js')
+    script(src='/javascripts/factory.js')
+    each val, index in controllers
+        script(src='/javascripts/controller/'+val+'.js')
+  body(ng-app="App") 
+    block content

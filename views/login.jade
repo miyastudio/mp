@@ -1,0 +1,9 @@
+extends layout_base
+block content
+  h1 login
+  p Welcome to #{title}
+  div(ng-controller='login')
+    input(ng-model='user.name')
+    input(ng-model='user.pass')
+    button(ng-click='login()') 登录
+    a(href='/reg') 弄个帐号

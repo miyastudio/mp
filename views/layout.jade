@@ -1,0 +1,12 @@
+extends layout_base
+block content
+  header
+    nav
+      logo semioe
+      a(href='/login') login
+      h2 订阅中心
+      menu(ng-controller='menu')
+        ul
+          li(ng-repeat="item in items") {{item}}    
+  block sub_content
+  footer
