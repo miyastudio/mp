@@ -3,6 +3,8 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
+var MongoStore = require('connect-mongo')(session);
 var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
@@ -21,8 +23,24 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({
+  secret: 'mp00xx',
+  name: 'mp',   //这里的name值得是cookie的name，默认cookie的name是：connect.sid
+  cookie: { maxAge: 80000 },  //设置maxAge是80000ms，即80s后session和相应的cookie失效过期
+  resave: false,
+  saveUninitialized: true
+}));
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/lib',express.static(path.join(__dirname, 'bower_components')));
+app.use('/lib', express.static(path.join(__dirname, 'bower_components')));
+
+app.use(function (req, res, next) {
+  var user = req.session.user || {
+    name: '游客',
+    role: 'guest'
+  };
+  req.session.user = user;
+  next();
+});
 
 
 app.use('/', index);

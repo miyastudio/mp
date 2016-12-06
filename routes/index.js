@@ -1,9 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var role = require('../middleware/session');
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-  res.render('index', { title: 'wemedia', controllers: ['menu'] });
+  var user = req.session.user;
+  res.render('index', { title: 'wemedia', user: user, controllers: ['menu'] });
+});
+router.get('/mp', role.page.user, function (req, res, next) {
+  var user = req.session.user;
+  res.render('mp', { title: 'mp', user: user, controllers: ['menu'] });
 });
 router.get('/login', function (req, res, next) {
   res.render('login', { title: 'login', controllers: ['login'] });

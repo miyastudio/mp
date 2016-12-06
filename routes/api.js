@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../bin/db');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -8,15 +9,13 @@ router.get('/', function (req, res, next) {
 
 
 router.get('/menu', function (req, res, next) {
-    var json = {
-        error: 0,
-        results: [
-            '人工智能',
-            '医疗健康',
-            '饮食养生'
-        ]
-    }
-    res.json(json);
+    db.Find('tags', {}, function (docs) {
+        var json = {
+            error: 0,
+            results: docs
+        }
+        res.json(json);
+    });
 });
 
 //login
