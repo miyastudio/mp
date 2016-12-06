@@ -26,11 +26,34 @@ App.factory('api', function ($http, menu) {
                 });
             }
         },
+        post: {
+            save: function (post) {
+                //console.log(post);
+                $http.post(base_url + 'post', post).then(function (json) {
+                    console.log(json);
+                }, function () {
+
+                });
+            },
+            up: function (id) {
+
+            },
+            del: function (id) {
+
+            },
+            get: function (id) {
+
+            }
+        },
         user: {
             login: function (user) {
                 console.log('user', user);
-                $http.post(base_url + 'user/login', user).then(function () {
-
+                $http.post(base_url + 'user/login', user).then(function (json) {
+                    console.log(json);
+                    if (json.data.results.length > 0) {
+                        console.log('login success !');
+                        location.href = '/mp';
+                    }
                 }, function () {
 
                 });

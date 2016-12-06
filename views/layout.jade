@@ -4,7 +4,11 @@ block content
     nav
       logo semioe 
       h2=user.name
+      a(href='/mp') mp
+      br
       a(href='/login') login
+      br
+      a(href='/logout') logout
       h2 订阅中心
       menu(ng-controller='menu')
         ul

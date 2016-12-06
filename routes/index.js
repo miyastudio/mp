@@ -11,6 +11,10 @@ router.get('/mp', role.page.user, function (req, res, next) {
   var user = req.session.user;
   res.render('mp', { title: 'mp', user: user, controllers: ['menu'] });
 });
+router.get('/mp/post', role.page.user, function (req, res, next) {
+  var user = req.session.user;
+  res.render('mp/post', { title: 'post', user: user, controllers: ['menu','mp_post'] });
+});
 router.get('/login', function (req, res, next) {
   res.render('login', { title: 'login', controllers: ['login'] });
 });

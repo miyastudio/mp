@@ -1,0 +1,7 @@
+extends ../layout
+block sub_content
+  h1= title
+  div(ng-controller='post')
+    input(ng-model='post.title')
+    textarea(ng-model='post.text')
+    button(ng-click='save()') post
