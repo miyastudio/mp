@@ -1,0 +1,7 @@
+extends ../mp
+block page_content
+  h1= title
+  div(ng-controller='list')
+    ul
+        li(ng-repeat='post in posts')
+            a(href='/post/{{post._id}}') {{post.title}}

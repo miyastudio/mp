@@ -1,4 +1,4 @@
-App.factory('api', function ($http, menu) {
+App.factory('api', function ($http, menu, posts) {
     var base_url = '/api/';
 
     //装载器
@@ -27,10 +27,11 @@ App.factory('api', function ($http, menu) {
             }
         },
         post: {
-            save: function (post) {
+            save: function (post, cb) {
                 //console.log(post);
                 $http.post(base_url + 'post', post).then(function (json) {
                     console.log(json);
+                    cb(json.data.results.insertedIds[0]);
                 }, function () {
 
                 });
@@ -42,7 +43,13 @@ App.factory('api', function ($http, menu) {
 
             },
             get: function (id) {
+                $http.get(base_url + 'user/posts').then(function (json) {
+                    console.log('json', json);
+                    init(posts);
+                    load(posts, json.data.results);
+                }, function (json) {
 
+                });
             }
         },
         user: {
@@ -72,5 +79,8 @@ App.factory('api', function ($http, menu) {
 });
 
 App.factory('menu', function () {
+    return [];
+});
+App.factory('posts', function () {
     return [];
 });
