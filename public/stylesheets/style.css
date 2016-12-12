@@ -1,8 +1,143 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
+  background-color: #efeff7;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+/* layout */
+.waper{
+  width: 100%;
+
+}
+.page{
+    width: 950px;
+    margin: 0 auto;
+    position: relative;
+}
+.footer{
+    background: 0 0 #27242e;
+    color: #616161;
+    text-align: center;
+    margin: 0;
+    padding: 10px 0 10px 0;
+}
+
+/* common  */
+.btn{
+    font-size: 16px;
+    width: 101px;
+    box-sizing: content-box;
+    transition: background-color .2s;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-decoration: none;
+}
+.group{
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+}
+input{
+    border: 1px solid #d7d7d7;
+    font-size: 12px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 3px;
+    vertical-align: middle;
+    width: 265px;
+    margin-top: 12px;
+}
+
+
+/* page  */
+.login-banner{
+    background-image: url(/images/banner_bg.jpg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin: 0 auto;
+    height: 485px;
+    min-width: 960px;
+    height: 488px;
+    width: 100%;
+    position: relative;
+}
+
+.login-area {
+    background-color: #fff;
+    position: absolute;
+    right:0;
+    top: 100px;
+    width: 330px;
+}
+.login-area-content {
+    padding: 15px 30px 30px;
+}
+
+
+.login-button{
+    color: #fff;
+    background-color: #f15c75;
+    
+}
+.login-reg{
+    color: #444;
+    background-color: #edf5fe;
+    border-color: #edf5fe;
+}
+.header{
+    color: #fff;
+    background-color: #322750;
+    background-image: url(/images/logo_top1.jpg);
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    height: 88px;
+}
+
+
+.logo{
+    line-height: 88px;
+    padding-left: 18px;
+    font-size: 20px;
+    color: #fde5b7;
+    float: left;
+}
+
+
+
+.mp-menu{
+  position: relative;
+  float: left;
+  width: 180px;
+  background: linear-gradient(to bottom,#554368,rgba(85,67,104,.5));
+}
+
+
+.user-cp{
+  float: right;
+  color: #f1f4fe;
+  font-size: 14px;
+  margin: 15px 0;
+  height: 58px;
 }

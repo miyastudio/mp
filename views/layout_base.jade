@@ -9,4 +9,14 @@ html
     each val, index in controllers
         script(src='/javascripts/controller/'+val+'.js')
   body(ng-app="App") 
+    header.header
+      .page
+        .logo=title 
+        .user-cp
+          h2=user.name
+          p
+            a(href='/login') 登录
+            a(href='/logout') 退出
     block content
+    footer.footer
+      p 2016

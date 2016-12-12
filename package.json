@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "supervisor node ./bin/www"
+    "start": "supervisor node ./bin/www",
+    "db":"sudo mongod --dbpath ./db"
   },
   "dependencies": {
     "assert": "^1.4.1",

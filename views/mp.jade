@@ -1,9 +1,15 @@
-extends layout
-block sub_content
-  h1= title
-  p Welcome to #{title}
-  a(href='/mp/post') post
-  br
-  a(href='/mp/list') list
-  block page_content
+extends layout_base
+block content
+
+  .waper
+    .page
+      .mp-menu
+        a(href='/mp/post') 写稿
+        br
+        a(href='/mp/list') 稿件
+        menu(ng-controller='menu')
+          ul
+            li(ng-repeat="item in items") {{item.name}}
+      .mp-content
+        block page_content
 
